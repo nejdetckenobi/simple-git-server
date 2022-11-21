@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  server:
+    build: .
+    ports:
+      - "${PORT}:22"
+    volumes:
+      - type: volume
+        source: repos
+        target: /repos
+      - type: bind
+        source: "${AUTHORIZED_KEYS}"
+        target: "/home/git/.ssh/authorized_keys"
+volumes:
+  repos:
+
