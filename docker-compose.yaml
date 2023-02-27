@@ -11,6 +11,8 @@ services:
       - type: bind
         source: "${AUTHORIZED_KEYS}"
         target: "/home/git/.ssh/authorized_keys"
+    environment:
+      - HOST=${HOST}
 volumes:
   repos:
 

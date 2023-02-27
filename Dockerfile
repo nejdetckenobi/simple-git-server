@@ -2,6 +2,7 @@ FROM ubuntu
 
 ENV PATH="${PATH}:/home/git/bin"
 ENV AUTHORIZED_KEYS=""
+ENV HOST=""
 
 WORKDIR /app
 
@@ -25,6 +26,7 @@ RUN mv scripts /home/git/bin
 RUN chown -hR git /home/git/bin
 RUN chmod +x /home/git/bin/masterkey
 RUN git config --global --add safe.directory '*'
+RUN git config --global init.defaultBranch master
 RUN mkdir -p /home/git/.ssh && chmod 700 /home/git/.ssh
 RUN chown -hR git /home/git/.ssh
 

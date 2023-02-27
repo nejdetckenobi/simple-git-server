@@ -11,12 +11,13 @@ elif [ "$1" = "create" ]
 then
     if [ -z "$2" ]
     then
-        echo "You need a filename"
+        echo "You need a repo name"
     else
         git init --bare "/repos/$2.git/"
-	rm -rf "/repos/$2.git/hooks"
-	cp -R ./hooks "/repos/$2.git/"
-	chown -hR git "/repos/$2.git"
+        rm -rf "/repos/$2.git/hooks"
+        cp -R ./hooks "/repos/$2.git/"
+        chown -hR git "/repos/$2.git"
+        echo "git remote add origin ssh://git@$HOST/repos/$2.git"
     fi
 elif [ "$1" = "delete" ]
 then
@@ -28,7 +29,10 @@ then
     fi
 elif [ "$1" = "list" ]
 then
-    ls -1 /repos/
+    for path in $(find /repos/ -mindepth 1 -maxdepth 1)
+    do
+        echo "ssh://git@$HOST$path"
+    done
 else
     echo "Invalid command. Options are create, delete and list."
 fi
