@@ -12,6 +12,7 @@ services:
         source: "${AUTHORIZED_KEYS}"
         target: "/home/git/.ssh/authorized_keys"
     environment:
+      - AUTHORIZED_KEYS=${AUTHORIZED_KEYS}
       - HOST=${HOST}
 volumes:
   repos:
