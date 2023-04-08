@@ -28,7 +28,7 @@ RUN chmod +x /home/git/bin/masterkey
 RUN git config --global --add safe.directory '*'
 RUN git config --global init.defaultBranch master
 RUN mkdir -p /home/git/.ssh && chmod 700 /home/git/.ssh
-RUN chown -hR git /home/git/.ssh
+RUN chown -hR git /home/git/.ssh && chown git /home/git/.ssh/authorized_keys
 
 
 EXPOSE 22
