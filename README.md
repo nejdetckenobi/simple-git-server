@@ -18,9 +18,9 @@
 - Put the path for your `authorized_keys` file as the value of `AUTHORIZED_KEYS` in the `.env` file.
 
 
-### Create a remote repository with REPO_NAME
+### Create a remote repository with `REPO_NAME`
 
-  `docker compose run server create REPO_NAME` 
+  `docker compose run server create REPO_NAME`
 
 
 ### Push existing repository to your git server
