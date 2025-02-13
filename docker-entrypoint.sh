@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
+
+
 if [ -z "$1" ]
 then
-    /usr/sbin/sshd -De
-elif [ "$1" = "masterkey" ]
-then
-    echo "Paste the key:" && cat > /home/git/.ssh/authorized_keys
+    chown git /home/git/.ssh
     chmod 600 /home/git/.ssh/authorized_keys
     chown git /home/git/.ssh/authorized_keys
+    /usr/sbin/sshd -De
 elif [ "$1" = "create" ]
 then
     if [ -z "$2" ]

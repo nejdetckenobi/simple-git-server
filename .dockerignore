@@ -1,4 +1,2 @@
-*.pub
 ssh_dir
 repos_dir
-.env

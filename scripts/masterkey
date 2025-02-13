@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-echo "Paste the key: " && cat > /home/git/.ssh/authorized_keys
-chmod 600 /home/git/.ssh/authorized_keys
-chown git /home/git/.ssh/authorized_keys
-

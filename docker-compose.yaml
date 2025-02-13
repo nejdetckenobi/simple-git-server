@@ -4,15 +4,13 @@ services:
     ports:
       - "${PORT}:22"
     volumes:
-      - type: volume
-        source: repos
-        target: /repos
       - type: bind
-        source: "${AUTHORIZED_KEYS}"
-        target: "/home/git/.ssh/authorized_keys"
+        source: "${REPOS_DIR}"
+        target: "/repos"
+      - type: bind
+        source: "${SSH_DIR}"
+        target: "/home/git/.ssh"
     environment:
-      - AUTHORIZED_KEYS=${AUTHORIZED_KEYS}
-      - HOST=${HOST}
-volumes:
-  repos:
+      HOST: "${HOST}"
+      PORT: "${PORT}"
 
